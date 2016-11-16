@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:App3.ViewModel;assembly=App3"
+             x:Class="App3.View.LoginPage"
+             BackgroundColor="#fafafa">
+    <ContentPage.BindingContext>
+        <viewModels:LoginPageVM/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Image Source="g5logo.png" HeightRequest="200" HorizontalOptions="Center" MinimumHeightRequest="200" WidthRequest="200"/>
+            <Label Text="Username" Margin="30,0,0,0" TextColor="#5a5a5c"/>
+            <Entry Text="{Binding username}" Margin="30,0,30,0" TextColor="#5a5a5c" PlaceholderColor="#dddde1" Placeholder="Username" />
+            <Label Text="Password" Margin="30,0,0,0" TextColor="#5a5a5c"/>
+            <Entry Text="{Binding password}" IsPassword="True" Margin="30,0,30,0" PlaceholderColor="#dddde1" Placeholder="Password"/>
+            <Button Text="Login" Command="{Binding LoginButtonCommand}" Margin="30,0,30,0" BackgroundColor="#5a5a5c"/>
+            <Button Text="Sign Up" Command="{Binding SignUpButtonCommand}" Margin="30,0,30,0" BackgroundColor="#5a5a5c"/>
+        </StackLayout>
+
+    </ContentPage.Content>
+    
+</ContentPage>

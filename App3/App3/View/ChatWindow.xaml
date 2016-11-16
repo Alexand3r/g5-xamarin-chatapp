@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App3.View.ChatWindow"
+             xmlns:local="clr-namespace:App3.ViewModel;assembly=App3"
+             BackgroundColor="#fafafa" 
+              >
+    <ContentPage Title="Chat Room">
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="AUTO" />
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ScrollView Orientation="Horizontal" BackgroundColor="#fafafa"  >
+                <ListView Grid.Row ="0"
+                    ItemsSource="{Binding messageList}" VerticalOptions="Fill" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text ="{Binding username, StringFormat='{0:N}:'}" TextColor="#5a5a5c" Font="Arial" FontSize="Medium" />
+                                        <Label Text ="{Binding message}" TextColor="#5a5a5c" Font="Arial" FontSize="Medium"/>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="End" >
+                <Entry Text="{Binding newMessage}"  HorizontalOptions="FillAndExpand" Margin="0,1,2,5" Placeholder="Send Message" PlaceholderColor="#dddde1" />
+                <Button Text="Send" Command="{Binding SendButtonCMD}" Margin="2,1,0,5" BackgroundColor="#5a5a5c"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+    <ContentPage>
+        <StackLayout>
+            <Label Text="Connected users *UNDER Construction*" TextColor="#5c5c5a"/>
+        </StackLayout>
+    </ContentPage>
+    
+</CarouselPage>
